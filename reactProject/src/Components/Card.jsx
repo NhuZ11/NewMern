@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BlackCar from "../assets/blackcar.png";
 
-const Card = () => {
+const Card = (props) => {
   // const articles = [
   //   {
   //     source: {
@@ -36,7 +36,7 @@ const Card = () => {
  
 
   const fetchData = async() => {
-    let url ="https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=5f76cd8b70354c068f5332d7f3f43698";
+    let url =`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${props.apiKey}`;
     let data = await fetch(url)
     let parseDate =  await data.json()
     console.log(parseDate)
