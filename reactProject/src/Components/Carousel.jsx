@@ -5,7 +5,7 @@ import YellowCar from "../assets/yellowcar.png";
 
 const Carousel = () => {
   return (
-    <div >
+    <div>
       <div
         id="carouselExampleIndicators"
         className="carousel slide"
