@@ -19,7 +19,7 @@ const BlogState = (props)=>{
 
     const [article, setArticle] = useState([]);
     const fetchData = async() => {
-      let url =`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${apiKey}`;
+      let url =`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${props.apiKey}`;
       let data = await fetch(url)
       let parseDate =  await data.json()
       console.log(parseDate)

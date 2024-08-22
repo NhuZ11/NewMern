@@ -1,5 +1,5 @@
 import React from "react";
-import BlackCar from "../assets/blackcar.png";
+import BlackCar from "../assets/blackcar 1.jpg";
 import WhiteCar from "../assets/whitecar.jpg";
 import YellowCar from "../assets/yellowcar.png";
 
@@ -19,7 +19,6 @@ const Carousel = () => {
             className="active"
             aria-current="true"
             aria-label="Slide 1"
-            color="black"
           ></button>
           <button
             type="button"
@@ -35,14 +34,38 @@ const Carousel = () => {
           ></button>
         </div>
         <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img src={BlackCar} className="d-block w-80 " alt="..." />
+          <div
+            className="carousel-item active"
+            style={{ paddingLeft: "10px", paddingRight: "10px" }}
+          >
+            <img
+              src={BlackCar}
+              className="d-block w-100"
+              alt="Black Car"
+              style={{ objectFit: "cover", height: "600px" }}
+            />
           </div>
-          <div className="carousel-item">
-            <img src={WhiteCar} className="d-block w-80 " alt="..." />
+          <div
+            className="carousel-item"
+            style={{ paddingLeft: "10px", paddingRight: "10px" }}
+          >
+            <img
+              src={WhiteCar}
+              className="d-block w-100"
+              alt="White Car"
+              style={{ objectFit: "cover", height: "600px" }}
+            />
           </div>
-          <div className="carousel-item">
-            <img src={YellowCar} className="d-block w-80" alt="..." />
+          <div
+            className="carousel-item"
+            style={{ paddingLeft: "10px", paddingRight: "10px" }}
+          >
+            <img
+              src={YellowCar}
+              className="d-block w-100"
+              alt="Yellow Car"
+              style={{ objectFit: "cover", height: "600px" }}
+            />
           </div>
         </div>
         <button

@@ -8,6 +8,7 @@ import Card from "./Components/Card";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./Components/Home";
 import About from "./Components/About";
+import Reduce from "./Components/Reduce";
 import BlogState from "./context/blogs/BlogState";
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/card" element={<Card apiKey={apiKey} />} />
             <Route path="/about" element={<About />} />
+            <Route path="/reduce" element={<Reduce />} />
             
           </Routes>
         </Router>
