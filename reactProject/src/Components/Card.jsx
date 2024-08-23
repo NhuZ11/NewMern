@@ -4,6 +4,7 @@ import blogcontext from "../context/blogs/BlogContext";
 const Card = () => {
   const context = useContext(blogcontext)
   const {article, fetchData}= context
+ 
 
   useEffect(()=>{
     fetchData()

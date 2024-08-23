@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Navbar = (props) => {
   return (
     <div>
-      <nav className={`navbar navbar-expand-lg navbar-${props.theme} bg-${props.theme}`}>
+      <nav
+        className={`navbar navbar-expand-lg navbar-${props.theme} bg-${props.theme}`}
+      >
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             Navbar
@@ -23,7 +26,11 @@ const Navbar = (props) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/home">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/home"
+                >
                   Home
                 </Link>
               </li>
@@ -40,7 +47,6 @@ const Navbar = (props) => {
               <li className="nav-item dropdown">
                 <Link
                   className="nav-link dropdown-toggle"
-                  href="#"
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -50,9 +56,9 @@ const Navbar = (props) => {
                 </Link>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a className="dropdown-item" href="#">
-                      Action
-                    </a>
+                    <Link className="dropdown-item" to="/reducerProduct">
+                      Reducer
+                    </Link>
                   </li>
                   <li>
                     <a className="dropdown-item" href="#">
@@ -70,21 +76,19 @@ const Navbar = (props) => {
                 </ul>
               </li>
               <li className="nav-item">
-                <a
-                  className="nav-link disabled"
-                  href="#"
-                  tabIndex="-1"
-                  aria-disabled="true"
-                >
-                  Disabled
-                </a>
+                <button type="button" className="btn btn-primary position-relative">
+                <FaShoppingCart />
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    99+
+                    <span className="visually-hidden">unread messages</span>
+                  </span>
+                </button>
               </li>
             </ul>
-          
-              <button className="btn btn-primary" onClick={props.toggleTheme} >
-                {props.text}
-              </button>
-          
+
+            <button className="btn btn-primary" onClick={props.toggleTheme}>
+              {props.text}
+            </button>
           </div>
         </div>
       </nav>
