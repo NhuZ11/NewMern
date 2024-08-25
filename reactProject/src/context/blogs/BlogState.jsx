@@ -23,14 +23,18 @@ const BlogState = (props)=>{
             "id": 101,
             "title": "Lamborghini",
             "description": "Super fast and slick",
-            "price": 150000 
+            "price": 150000,
+            "instock": 5
+ 
 
         },
         {
             "id": 102,
             "title": "Ferrari",
             "description": "Red and slick",
-            "price": 50000 
+            "price": 50000,
+            "instock": 5
+ 
 
         }
     ]
