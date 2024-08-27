@@ -12,10 +12,12 @@ import Reduce from "./Components/Reduce";
 import BlogState from "./context/blogs/BlogState";
 import Serviceitem from "./Components/Serviceitem";
 import Cartitems from "./Components/Cartitems";
+import Login from "./Components/Login";
+import Signup from "./Components/Signup";
 
 function App() {
   const apiKey = import.meta.env.VITE_API_KEY;
-  console.log(apiKey);
+  // console.log(apiKey);
   const [theme, setTheme] = useState("light");
   const [text, setButtonText] = useState("Enable Dark");
   const [alert, setAlert] = useState(null); // Initialize as null
@@ -56,6 +58,8 @@ function App() {
             <Route path="/reduce" element={<Reduce />} />
             <Route path="/reducerProduct" element={<Serviceitem />} />
             <Route path="/cartitems" element={<Cartitems />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
             
           </Routes>
         </Router>

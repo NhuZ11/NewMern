@@ -49,6 +49,7 @@ const Navbar = (props) => {
                   About Us
                 </Link>
               </li>
+              
               <li className="nav-item dropdown">
                 <Link
                   className="nav-link dropdown-toggle"
@@ -81,6 +82,11 @@ const Navbar = (props) => {
                 </ul>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="/login">
+                  Login
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link to="./cartitems">
                   <button
                     type="button"
@@ -94,6 +100,7 @@ const Navbar = (props) => {
                   </button>
                 </Link>
               </li>
+              
             </ul>
 
             <button className="btn btn-primary" onClick={props.toggleTheme}>
