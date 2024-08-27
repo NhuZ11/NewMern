@@ -9,7 +9,8 @@ const Login = () => {
 
     }
 
-    const handleChange = () => {
+    const handleChange = (e) => {
+        setCredential({...credential,[e.target.name]:e.target.value})
 
     }
 
