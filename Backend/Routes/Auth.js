@@ -11,6 +11,10 @@ router.get("/", (req, res) => {
         a: "Nhuz",
         b: "Bajra"
     }
+    obj = {
+        a: "Nhuz",
+        b: "Bajra"
+    }
     res.send(obj)
 })
 
