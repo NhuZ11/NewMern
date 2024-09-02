@@ -1,15 +1,16 @@
 const express = require('express')
-const Product = require('../Model/Product')
+
 const User = require('../Model/User')
 const router = express.Router()
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-require('dotenv').config();
 
-const JWT_SECRET = process.env.JWT_SECRET;
-console.log(JWT_SECRET)
+
+require("dotenv").config();
+  const JWT_SECRET = process.env.SECRET
 
 const { body, validationResult } = require('express-validator')
+const fetchUser = require('../Middleware/FetchUser')
 
 //creating user with using post "api/auth/createuser"
 router.post("/createUser", [
@@ -86,6 +87,7 @@ router.post("/login", [
             res.json({user, authToken})
 
         }catch(error){
+            console.error(error.message);
             res.status(500).send("Internal server error")
         }
     }
@@ -93,13 +95,21 @@ router.post("/login", [
 
 
 
-
-router.post("/createProduct", (req, res) => {
-    console.log(req.body)
-    res.send(req.body)
-    const product = Product(req.body)
-    product.save()
+//get user
+router.get('/getuser', fetchUser, async(req,res)=>{
+    try {
+        const userId = req.user.id;
+        const user =  await User.findById(userId).select("-password")
+        res.send(user)
+    } catch (error) {
+        res.status(500).send("Internal server error")
+    }
 })
+
+
+
+
+
 
 
 module.exports = router

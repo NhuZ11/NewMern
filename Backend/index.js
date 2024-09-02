@@ -12,6 +12,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/auth', require('./Routes/Auth.js'))
+app.use('/api/product', require('./Routes/ProductRoute.js'))
 
 
 app.listen(port, () => {
