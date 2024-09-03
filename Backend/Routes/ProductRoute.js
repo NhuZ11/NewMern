@@ -53,4 +53,35 @@ router.post('/addproduct', fetchUser,
       }
    })
 
+
+   //update product
+
+   router.put('/updateproduct/:id', fetchUser, async(req,res)=>{
+      const { title, description, price, instock } = req.body
+      try {
+        const newProduct={}
+        if(title){newProduct.title=title}
+        if(description){newProduct.description=description}
+        if(price){newProduct.price=price}
+        if(instock){newProduct.instock=instock}   
+
+        let product = await Product.findById(req.params.id)
+        if(!product){
+         
+         return res.status(404).send("Product not found.")
+        }
+
+        if(!product.user || product.user.toString()!==req.user.id){
+         return res.status(404).send("Not allowed.")
+        }
+
+        product = await Product.findByIdAndUpdate(req.params.id,{$set:newProduct},{new:true})
+        res.json(product)
+
+      } catch (error) {
+         console.log(error)
+         res.status(500).send("Internal server error")
+      }
+   })
+
 module.exports = router
