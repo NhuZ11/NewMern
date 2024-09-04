@@ -50,12 +50,13 @@ function App() {
             <Navbar theme={theme} text={text} toggleTheme={toggleTheme} />
             {alert && <Alert alert={alert} alertShow={alertShow} />}
           </header>
+
           <Routes>
             
             <Route path="/home" element={<Home />} />
             <Route path="/card" element={<Card  />} />
             <Route path="/about" element={<About />} />
-            <Route path="/reduce" element={<Reduce />} />
+            {/* <Route path="/reduce" element={<Reduce />} /> */}
             <Route path="/reducerProduct" element={<Serviceitem />} />
             <Route path="/cartitems" element={<Cartitems />} />
             <Route path="/login" element={<Login />} />

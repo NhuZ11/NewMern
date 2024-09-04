@@ -58,12 +58,12 @@ const Navbar = (props) => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Dropdown
+                  Products
                 </Link>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
                     <Link className="dropdown-item" to="/reducerProduct">
-                      Reducer
+                      Reducer (Show Product)
                     </Link>
                   </li>
                   <li>

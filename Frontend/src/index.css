@@ -1,0 +1,22 @@
+.hero-section {
+    background-image: url('D:\MERN\reactProject\Frontend\src\assets\blackcar 1.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full height hero section */
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Optional: Add overlay for better text readability */
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
