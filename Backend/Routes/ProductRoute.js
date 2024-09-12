@@ -37,6 +37,7 @@ router.post('/addproduct', fetchUser,
 
       try {
          const { title, description, price, instock } = req.body
+         console.log('this our product', req.body);
          const errors = validationResult(req)
          if (!errors.isEmpty()) {
             console.log(errors)

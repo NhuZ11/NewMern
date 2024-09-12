@@ -5,8 +5,8 @@ import { MdDelete } from "react-icons/md";
 
 const Cartitems = () => {
   const context = useContext(blogContext);
-  const { state: { cart } } = context;
-  const Total= cart.reduce((acc, curr)=> acc + curr.price * curr.qty, 0)
+  const { state: { cart }, dispatch } = context;  // Ensure dispatch is available
+  const Total = cart.reduce((acc, curr) => acc + curr.price * curr.qty, 0);
 
   return (
     <div className="container home">
@@ -21,6 +21,8 @@ const Cartitems = () => {
                 <div className="col-md-2">Product Name</div>
                 <div className="col-md-2">Price</div>
                 <div className="col-md-2">Description</div>
+                <div className="col-md-2">Quantity</div>
+                <div className="col-md-2">Remove</div>
               </div>
             </li>
             {cart.map((prod) => (
@@ -37,43 +39,50 @@ const Cartitems = () => {
                   <div className="col-md-2">{prod.price}</div>
                   <div className="col-md-2">{prod.description}</div>
                   <div className="col-md-2">
-                    <select value={prod.qty}
-                    onChange={(e)=>{
-                        dispatchEvent({
-                            type: "CHANGE_CART_QTY",
-                            payload: {
-                                id: prod.id,
-                                qty: e.target.value
-                            }
-                        })
-                    }} className="form-control">
-                        {[...Array(prod.instock).keys()].map((x)=>(
-                                <option key={x+1} value={x+1}>{x+1}</option>
-                            ))}
-
+                    <select
+                      value={prod.qty}
+                      onChange={(e) => {
+                        dispatch({
+                          type: "CHANGE_CART_QTY",
+                          payload: {
+                            id: prod.id,
+                            qty: e.target.value,
+                          },
+                        });
+                      }}
+                      className="form-control"
+                    >
+                      {[...Array(prod.instock).keys()].map((x) => (
+                        <option key={x + 1} value={x + 1}>
+                          {x + 1}
+                        </option>
+                      ))}
                     </select>
-                    </div>
-                    <div className='col-md-2' >
-                            <button type='button' className='btn btn-light ' onClick={()=>
-                                dispatch({
-                                    type: "REMOVE_FROM_CART",
-                                    payload: prod
-                                })
-                            }>
-                        <MdDelete />
-                        </button>
-                        </div>
+                  </div>
+                  <div className="col-md-2">
+                    <button
+                      type="button"
+                      className="btn btn-light"
+                      onClick={() =>
+                        dispatch({
+                          type: "REMOVE_FROM_CART",
+                          payload: prod,
+                        })
+                      }
+                    >
+                      <MdDelete />
+                    </button>
+                  </div>
                 </div>
               </li>
             ))}
           </ul>
         )}
       </div>
-      <div className='filter summary'>
-            <div className='title'>Total items: ({cart.length})</div>
-            <h4>Total: {Total}</h4>
-
-        </div>
+      <div className="filter summary">
+        <div className="title">Total items: ({cart.length})</div>
+        <h4>Total: {Total}</h4>
+      </div>
     </div>
   );
 };

@@ -24,7 +24,7 @@ const BlogState = (props)=>{
             "title": "Lamborghini",
             "description": "Super fast and slick",
             "price": 150000,
-            "instock": 5
+            "instock": 2
  
 
         },
@@ -33,7 +33,7 @@ const BlogState = (props)=>{
             "title": "Ferrari",
             "description": "Red and slick",
             "price": 50000,
-            "instock": 5
+            "instock": 2
  
 
         }
