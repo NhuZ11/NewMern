@@ -27,7 +27,7 @@ const Addproduct = (props) => {
                 }
             });
             console.log(response.data);
-            props.showAlert("Added successfully", "success");
+            props.alertShow("Added successfully", "success");
 
             setProduct({
                 title: "",
@@ -39,7 +39,7 @@ const Addproduct = (props) => {
 
         } catch (error) {
             console.error(error);
-            props.showAlert("Failed to add product", "danger");
+            props.alertShow("Failed to add product", "danger");
         }
     };
 

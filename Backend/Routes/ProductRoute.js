@@ -34,7 +34,8 @@ router.post('/addproduct', fetchUser,
       body('title').isLength({ min: 3 }),
       body('description').isLength({ min: 5 })],
    async (req, res) => {
-
+      console.log("req.files", req.files)
+      console.log("req.body", req.body)
       try {
          const { title, description, price, instock } = req.body
          console.log('this our product', req.body);
@@ -43,6 +44,9 @@ router.post('/addproduct', fetchUser,
             console.log(errors)
             return res.status(400).json({ errors: errors.array() });
          }
+         let images = req.files.map(el => {
+            return el.filename
+        })
          const product = new Product({
             title, description, price, instock, user: req.user.id
          })

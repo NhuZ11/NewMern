@@ -67,9 +67,9 @@ const Navbar = (props) => {
                     </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
-                      Another action
-                    </a>
+                    <Link className="dropdown-item" to="/addproduct">
+                      Add Product
+                    </Link>
                   </li>
                   <li>
                     <hr className="dropdown-divider" />

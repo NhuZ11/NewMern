@@ -22,6 +22,10 @@ const ProductSchema = new Schema({
         type: String,
         required: true
     },
+    images: {
+        type: [String],
+        required: false
+    },
     date:{
         type: Date,
         default: Date.now
