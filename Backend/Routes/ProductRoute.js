@@ -48,7 +48,7 @@ router.post('/addproduct', fetchUser,
             return el.filename
         })
          const product = new Product({
-            title, description, price, instock, user: req.user.id
+            title, description, price, instock,images, user: req.user.id
          })
          const savedProduct = await product.save()
          res.json(savedProduct)

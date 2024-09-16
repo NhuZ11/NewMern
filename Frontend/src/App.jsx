@@ -15,6 +15,7 @@ import Cartitems from "./Components/Cartitems";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import Addproduct from "./Components/Addproduct";
+import Allproduct from "./Components/Allproduct";
 
 function App() {
   const apiKey = import.meta.env.VITE_API_KEY;
@@ -63,6 +64,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup alert={alert} alertShow={alertShow} />} />
             <Route path="/addproduct" element={<Addproduct alert={alert} alertShow={alertShow} />} />
+            <Route path="/showproduct" element={<Allproduct />} />
             
           </Routes>
         </Router>
