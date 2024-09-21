@@ -31,7 +31,7 @@ const Cartitems = () => {
                   <div className="col-md-2">
                     <img
                       className="img-fluid rounded"
-                      src={BlackCar}
+                      src={`http://localhost:5000/uploads/${prod.images}`}
                       alt={prod.name}
                     />
                   </div>

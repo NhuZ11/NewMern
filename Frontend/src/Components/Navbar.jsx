@@ -15,7 +15,7 @@ const Navbar = (props) => {
       >
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            Navbar
+            CarRental
           </a>
           <button
             className="navbar-toggler"
@@ -69,6 +69,11 @@ const Navbar = (props) => {
                   <li>
                     <Link className="dropdown-item" to="/addproduct">
                       Add Product
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/showproduct">
+                      Show all Product
                     </Link>
                   </li>
                   <li>

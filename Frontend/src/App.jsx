@@ -6,7 +6,7 @@ import "./App.css";
 import Alert from "./Components/Alert";
 import Card from "./Components/Card";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Home from "./Components/Home";
+import Home from "./Components/HomeComponent/Home";
 import About from "./Components/About";
 import Reduce from "./Components/Reduce";
 import BlogState from "./context/blogs/BlogState";
@@ -20,7 +20,7 @@ import Allproduct from "./Components/Allproduct";
 function App() {
   const apiKey = import.meta.env.VITE_API_KEY;
   // console.log(apiKey);
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
   const [text, setButtonText] = useState("Enable Dark");
   const [alert, setAlert] = useState(null); // Initialize as null
 
