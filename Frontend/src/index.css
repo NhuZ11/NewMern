@@ -74,3 +74,9 @@
   .form-background{
     background-color: whitesmoke;
   }
+
+
+  /* remove underline */
+  .underline {
+    text-decoration: none;
+  }

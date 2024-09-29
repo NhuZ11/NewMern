@@ -45,7 +45,7 @@ const Cartitems = () => {
                         dispatch({
                           type: "CHANGE_CART_QTY",
                           payload: {
-                            id: prod.id,
+                            id: prod._id,
                             qty: e.target.value,
                           },
                         });

@@ -8,6 +8,7 @@ import Features from "./Features";
 import Service from "./Services";
 import Contact from "./Contact";
 import Testimonial from "./Testimonial";
+import HomeShowProduct from "./HomeShowProduct";
 
 const Home = () => {
   return (
@@ -28,6 +29,7 @@ const Home = () => {
       <HomepageAbout />
       {/* <Serviceitem /> */}
       <Service />
+      <HomeShowProduct />
       <Contact /> 
       <Testimonial />
       <Footer />

@@ -13,6 +13,15 @@ const router = express.Router()
 //     product.save()
 // })
 
+router.get('/gethomeproduct', fetchUser, async (req, res) => {
+   try {
+       const products = await Product.find()
+       res.json(products)
+   } catch (error) {
+       res.status(500).send("internal server error")
+   }
+})
+
 
 //get all product taught wala ... fetch all product by single user
 

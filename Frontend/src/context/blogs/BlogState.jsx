@@ -2,6 +2,7 @@ import { useReducer, useState } from "react";
 import blogcontext from "./BlogContext";
 import { cartReducer } from "./Reducer";
 import axios from 'axios'
+import Allproduct from "../../Components/Allproduct";
 
 const BlogState = (props)=>{
     // const user={
@@ -58,6 +59,8 @@ const BlogState = (props)=>{
       setArticle(parseDate.articles)
     };
 
+
+
     
    
     // const fetchProduct = async()=>{
@@ -87,12 +90,62 @@ const BlogState = (props)=>{
             console.error("Error fetching products:", error);
         }
     };
+
+    const editProduct = async (selectedProduct, updateData) => {
+        console.log(`Editing product with id: ${selectedProduct}`);
+    
+        const { title, description, price, instock } = updateData;
+    
+        try {
+            const response = await fetch(`http://localhost:5000/api/product/updateproduct/${selectedProduct}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'auth-token': localStorage.getItem('token') 
+                },
+                body: JSON.stringify({ title, description, price, instock }) 
+            });
+            if (!response.ok) {
+                throw new Error(`Failed to update product. Status code: ${response.status}`);
+            }
+            const json = await response.json();
+            console.log('Product updated successfully:', json);
+    
+        } catch (error) {
+            console.error('Error updating product:', error.message || error);
+        }
+    };
+
+
+    const deleteProduct = async (id) => {
+        try {
+            const response = await fetch(`http://localhost:5000/api/product/deleteproduct/${id}`, {
+                method: 'DELETE',
+
+                headers: {
+                    "Content-Type": "application/json",
+                    "auth-token": localStorage.getItem('token')
+                },
+            });
+
+            if (response.ok) {
+                console.log("Work item deleted successfully.");
+                // Update the state to remove the deleted item from the UI
+                fetchProduct(); // Fetch the updated list of products
+            } else {
+                console.error("Failed to delete the work item.");
+            }
+        } catch (error) {
+            console.error("An error occurred while deleting the work item:", error);
+        }
+    };
+
     
   
     
 
     return(
-        <blogcontext.Provider value={{state, dispatch ,article, fetchData, product, fetchProduct}}>
+        <blogcontext.Provider value={{state, dispatch ,article, fetchData, product, fetchProduct, editProduct, deleteProduct}}>
             {props.children}
         </blogcontext.Provider>
 
