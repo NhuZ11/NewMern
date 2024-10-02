@@ -9,8 +9,9 @@ const Cartitems = () => {
   const Total = cart.reduce((acc, curr) => acc + curr.price * curr.qty, 0);
 
   return (
-    <div className="container home">
+    <div className="container home mt-2">
       <div className="productcontainer-cart">
+        <h1 className="display-6">Cart Items:</h1>
         {cart.length === 0 ? (
           <p>Your cart is empty</p>
         ) : (

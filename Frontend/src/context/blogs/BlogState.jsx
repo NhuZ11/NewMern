@@ -3,6 +3,8 @@ import blogcontext from "./BlogContext";
 import { cartReducer } from "./Reducer";
 import axios from 'axios'
 import Allproduct from "../../Components/Allproduct";
+import BlackCar from "../../assets/Car1.png";
+import Car2 from "../../assets/Car2.png";
 
 const BlogState = (props)=>{
     // const user={
@@ -20,26 +22,24 @@ const BlogState = (props)=>{
     //     },2000)
     // }
 
-    const products=[
+    const products = [
         {
-            "id": 101,
-            "title": "Lamborghini",
-            "description": "Super fast and slick",
-            "price": 150000,
-            "instock": 2
- 
-
+          id: 101,
+          title: "Lamborghini",
+          description: "Super fast and slick",
+          price: 150000,
+          instock: 2,
+          images: BlackCar,
         },
         {
-            "id": 102,
-            "title": "Ferrari",
-            "description": "Red and slick",
-            "price": 50000,
-            "instock": 2
- 
-
-        }
-    ]
+          id: 102,
+          title: "Ferrari",
+          description: "Red and slick",
+          price: 50000,
+          instock: 2,
+          images: Car2,
+        },
+      ];
 
     const [state, dispatch] = useReducer(cartReducer,
         {

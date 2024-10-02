@@ -7,7 +7,7 @@ import SearchItem from "./HomeComponent/SearchItem";
 const Navbar = (props) => {
   const context = useContext(blogContext);
   const {
-    state: { cart }, 
+    state: { cart },
     product,
   } = context;
 
@@ -36,6 +36,11 @@ const Navbar = (props) => {
     setModalVisible(false);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   return (
     <div>
       <nav
@@ -59,7 +64,11 @@ const Navbar = (props) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/home">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/home"
+                >
                   Home
                 </Link>
               </li>
@@ -109,11 +118,25 @@ const Navbar = (props) => {
                   </li>
                 </ul>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/login">
                   Login
                 </Link>
-              </li>
+              </li> */}
+              {localStorage.getItem("token") ? (
+                <li className="nav-item" onClick={handleLogout}>
+                  <Link className="nav-link" to="login">
+                    Logout
+                  </Link>
+                </li>
+              ) : (
+                <li className="nav-item">
+                  <Link className="nav-link" to="login">
+                    Login
+                  </Link>
+                </li>
+              )}
+
               <li className="nav-item">
                 <Link to="./cartitems">
                   <button
