@@ -56,6 +56,7 @@ function App() {
 
           <Routes>
             
+            <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/card" element={<Card  />} />
             <Route path="/car" element={<Car />} />
